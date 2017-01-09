@@ -1,0 +1,19 @@
+﻿<div class="col-lg-10 col-lg-offset-1">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Description</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="topic in controller.topics">
+                <td>{{topic.id}}</td>
+                <td>{{topic.subject}}</td>
+                <td><a ui-sref="subtopics({id: topic.id})">{{topic.description}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
