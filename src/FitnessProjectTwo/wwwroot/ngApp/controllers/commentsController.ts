@@ -2,17 +2,17 @@
 
     export class CommentsController {
 
-        public comments;
-        public resource = "/api/comments";
+        public subtopic;
+        public resource = "/api/comment/";
 
         constructor(private $http: ng.IHttpService, private $stateParams: ng.ui.IStateParamsService, private $state: ng.ui.IStateService, private TopicService: FitnessProjectTwo.Services.TopicService) {
 
-            this.comments = this.getCommentsFromId();
+            this.subtopic = this.getCommentsFromId();
         }
 
         public getCommentsFromId() {
             return this.$http.get(this.resource + this.$stateParams["id"]).then((response) => {
-                this.comments = response.data
+                this.subtopic = response.data
             });
 
         }

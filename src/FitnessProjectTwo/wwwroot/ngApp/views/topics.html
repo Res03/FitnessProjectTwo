@@ -1,19 +1,21 @@
-﻿<div class="col-lg-10 col-lg-offset-1">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Subject</th>
-                <th>Description</th>
-               
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="topic in controller.topics">
-                <td>{{topic.id}}</td>
-                <td>{{topic.subject}}</td>
-                <td><a ui-sref="subtopics({id: topic.id})">{{topic.description}}</a></td>
-            </tr>
-        </tbody>
-    </table>
+﻿
+   
+  
+<a class="btn btn-info" ui-sref="addtopic">Add a Topic</a>
+<hr />
+<div style="background-color:grey; padding:5%;" class="container img-rounded" >
+    <div >
+        <div style="font-size:2em;">
+            <ul class="list-unstyled col-md-4" ng-repeat="top in controller.topics">
+                <a ui-sref="subtopics({id: top.id})">
+                <div class="img-rounded" style="background-color:cornflowerblue; padding:3%;">
+                    <li>{{top.subject}}</li>
+                    <li>{{top.description}}</li>
+                    <li><a class="btn btn-info" ui-sref="edittopic({id: top.id})">Edit Topic</a></li>
+                    <li><a class="btn btn-info" ui-sref="deletetopic({id: top.id})">Delete Topic</a></li>
+                </div>
+                </a>
+            </ul>
+        </div>
+    </div>
 </div>

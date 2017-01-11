@@ -5,6 +5,7 @@ namespace FitnessProjectTwo.Services
 {
     public interface ITopicService
     {
+        void AddSubTopic(SubTopic topic);
         void AddTopic(Topic topic);
         void DeleteTopic(int id);
         List<Topic> GetAllTopics();

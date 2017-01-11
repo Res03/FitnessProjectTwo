@@ -19,6 +19,30 @@ namespace FitnessProjectTwo {
                 controller: FitnessProjectTwo.Controllers.TopicController,
                 controllerAs: 'controller'
             })
+            .state('addtopic', {
+                url: '/addtopic',
+                templateUrl: '/ngApp/views/addTopic.html',
+                controller: FitnessProjectTwo.Controllers.AddTopicController,
+                controllerAs: 'controller'
+            })
+            .state('edittopic', {
+                url: '/edittopic/:id',
+                templateUrl: '/ngApp/views/editTopic.html',
+                controller: FitnessProjectTwo.Controllers.EditTopicController,
+                controllerAs: 'controller'
+            })
+            .state('deletetopic', {
+                url: '/deletetopic/:id',
+                templateUrl: '/ngApp/views/deleteTopic.html',
+                controller: FitnessProjectTwo.Controllers.DeleteTopicController,
+                controllerAs: 'controller'
+            })
+            .state('addsubtopic', {
+                url: '/addsubtopic/:id',
+                templateUrl: '/ngApp/views/addSubTopic.html',
+                controller: FitnessProjectTwo.Controllers.AddSubTopicController,
+                controllerAs: 'controller'
+            })
             .state('subtopics', {
                 url: '/subtopics/:id',
                 templateUrl: '/ngApp/views/subtopics.html',

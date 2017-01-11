@@ -14,24 +14,28 @@
 
         public addTopic(topic) {
             return this.$http.post(this.resource, topic).then((response) => {
-                this.$state.go("discussion");
+                this.$state.go("topics");
             })
         }
 
         
         public deleteTopic() {
             this.$http.delete(this.resource + this.$stateParams["id"]).then((response) => {
-                this.$state.go("discussion");
+                this.$state.go("topics");
             })
         }
 
         public editTopic(topic) {
             this.$http.post(this.resource, topic).then((response) => {
-                this.$state.go("discussion");
+                this.$state.go("topics");
             })
         }
 
     }
+
+
+    
+
     angular.module("FitnessProjectTwo").service("TopicService", TopicService)
 
 }

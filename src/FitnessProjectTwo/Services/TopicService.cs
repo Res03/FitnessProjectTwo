@@ -43,6 +43,22 @@ namespace FitnessProjectTwo.Services
             }
         }
 
+        public void AddSubTopic(SubTopic topic)
+        {
+            //var topicId = _repo.Query<Topic>().Where(t => t.Id == id).FirstOrDefault();
+
+            if (topic.Id == 0)
+            {
+                
+                _repo.Add(topic);
+                
+            }
+            else
+            {
+                _repo.Update(topic);
+            }
+        }
+
         public void DeleteTopic(int id)
         {
             Topic topic = _repo.Query<Topic>().Where(t => t.Id == id).FirstOrDefault();
@@ -57,7 +73,7 @@ namespace FitnessProjectTwo.Services
                 Id = t.Id,
                 Subject = t.Subject,
                 Description = t.Description,
-                SubTopic = t.SubTopic
+                SubTopic = t.SubTopic,                
             }).FirstOrDefault();
             return getTopic;
         }
@@ -69,7 +85,7 @@ namespace FitnessProjectTwo.Services
                 Id = t.Id,
                 Subject = t.Subject,
                 Description = t.Description,
-                Comments = t.Comments
+                Comments = t.Comments,
             }).FirstOrDefault();
             return comments;
         }

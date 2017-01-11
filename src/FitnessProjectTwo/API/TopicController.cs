@@ -42,10 +42,12 @@ namespace FitnessProjectTwo.API
             return Ok(commentsById);
         }
 
+
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Topic topic)
         {
+            _service.AddTopic(topic);
         }
 
         // PUT api/values/5
@@ -58,6 +60,33 @@ namespace FitnessProjectTwo.API
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _service.DeleteTopic(id);
         }
     }
+        [Route("api/[controller]")]
+        public class AddSubTopicController : Controller
+        {
+            private ITopicService _service;
+
+            public AddSubTopicController(ITopicService service)
+            {
+            _service = service;
+            }
+
+        [HttpPost]
+        public void Post([FromBody]SubTopic topic)
+        {
+            if(ModelState.IsValid)
+            {
+                _service.AddSubTopic(topic);
+            }
+            else
+            {
+                BadRequest();
+            }
+            
+        }
+
+    }
+   
 }
